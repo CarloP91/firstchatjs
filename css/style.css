@@ -121,5 +121,11 @@ body {
   float: left;
   color: #999;
 }
+
+#avatar {
+  height: 50px;
+  width: 50px;
+  border: solid red;
+}
 </style>
 </head>
