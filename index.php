@@ -18,16 +18,13 @@
 
 <body>
 
-<h2>Popup Chat Window</h2>
+<h2 class=" text-center">JS CHAT - POWERED BY "Carlo Pennetta"</h2>
 
-  <div class="container" >
-  <div class="row">
-    <div class="col " id="divD"><?php //include 'db/select_db_chat_mitt.php' ?>
-   
-    </div>
-  </div>
+<button onclick="bgd()">SCURO</button>
+
+  <div id="divD" class="container" >
+ 
 </div> 
-
 
 
 <button class="open-button" onclick="openForm()">Chat</button>
@@ -43,11 +40,11 @@
 
     <div class="form-container">
 
-    <h1>Chat</h1>
+    <h5>Chat</h5>
 
     <label>USERNAME</label><br>
 
-    <input type="text" id="mittente"  ><br><br>
+    <input type="text" id="mittente" class="username_form"><br><br>
 
     <label for="texto"><b>Message</b></label>
     <textarea  placeholder="Type message.."  id="texto" required></textarea>
@@ -93,5 +90,36 @@ function closeForm() {
             divdin.innerHTML = divdin.innerHTML + "<br>" + '<div class="col" style="border:solid"> <img src="img/avatar.jpg" alt="Avatar";">' + inputVal + '<br>' + '<br>' + Date() + '</div>';
             //tradotto = div.din è uguale a div.din + uno spazio + il valore 
         } */
+
+
+const messages = document.getElementById('messages');
+
+function appendMessage() {
+  const message = document.getElementsByClassName('message')[0];
+  const newMessage = message.cloneNode(true);
+  messages.appendChild(newMessage);
+}
+
+function getMessages() {
+  // Prior to getting your messages.
+  shouldScroll = messages.scrollTop + messages.clientHeight === messages.scrollHeight;
+  /*
+   * Get your messages, we'll just simulate it by appending a new one syncronously.
+   */
+  appendMessage();
+  // After getting your messages.
+  if (!shouldScroll) {
+    scrollToBottom();
+  }
+}
+
+function scrollToBottom() {
+  messages.scrollTop = messages.scrollHeight;
+}
+
+scrollToBottom();
+
+setInterval(getMessages, 100);
+
 </script>
 </html>
