@@ -13,7 +13,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
       <script type="text/javascript">
-		$(document).ready(function() {
+        function select_message() {
+		
 			$.ajax({
 				url: "db/select_db_chat_mitt.php",
 				crossDomain: true,
@@ -24,7 +25,7 @@
 
 					for (var i = 0; i < data.length; i++) {
 						console.log(data[i]);
-						str = str + '<br><br>' + '<div class="col"><img id="avatar" src="img/avatar.jpg" alt="Avatar"></div>'  + '<strong>' + data[i].mittente + '</strong>' + '<br>' + '<span class="border border-dark">' + data[i].testo + '</span><br><a href="db/delete_db_chat_mitt.php">DELETE</a>' + Date() + ""  + "" 
+						str = str + '<br><br>' + '<div class="col"><img id="avatar" src="img/avatar.jpg" alt="Avatar"></div>'  + '<strong>' + data[i].mittente + '</strong>' + '<br>' + '<span class="border border-dark">' + data[i].testo + '</span><br><a href="db/delete_db_chat_mitt.php">DELETE</a>' + data[i].data + ""  + "" 
 					}
 
 					$("#divD").html(str);
@@ -34,8 +35,35 @@
 					console.log("SONO DENTRO FUNZIONE ERROR");
 				}
 			});
-		});
+}
+
+        $(document).ready(function() {
+        select_message();
+        setInterval(select_message,1000);
+});
 	</script>
+
+  <script type="text/javascript">function invia()
+ {
+    var testoMessaggio = document.getElementById('texto').value;
+    var nomeMittente = document.getElementById('mittente').value;
+    
+    if (testoMessaggio != "") {
+      $.ajax({
+          type: 'POST',
+          url: "db/insert_db_chat_mitt.php",
+          data: {"mittente": nomeMittente, "texto":(testoMessaggio)},
+          success: function(data){
+            console.log("Dati inviati");
+          },
+
+          error: function(data) {
+            console.log("Dati non inviati");
+          }
+      });
+    }
+  };
+  </script>
 
 </head>
 <body>
@@ -52,7 +80,7 @@
 <button class="open-button" onclick="openForm()">Chat</button>
 
 <div class="chat-popup" id="myForm">
-  <form action="db/insert_db_chat_mitt.php" method="post" class="form-container">
+ <!-- <form action="db/insert_db_chat_mitt.php" method="post" class="form-container">
     <h1>Chat</h1>
 
 
@@ -60,15 +88,28 @@
     <input type="text" name="mittente" ><br><br>
 
     <label for="texto"><b>Message</b></label>
-   <textarea  placeholder="Type message.." name="texto" required></textarea>
+   <textarea  placeholder="Type message.." name="texto" required></textarea> -->
 
 
     <!--<button type="button"  class="btn" onclick="getInputValue();">Send</button>-->
 
     <!-- <button type="button" id="send" onclick="manda()" class="btn">Send</button> -->
-    <input type="submit" name="submit" value="invia" class="btn">
+    <div class="form-container">
+
+    <h1>Chat</h1>
+
+
+    <label>USERNAME</label><br>
+
+    <input type="text" id="mittente"  ><br><br>
+
+    <label for="texto"><b>Message</b></label>
+    <textarea  placeholder="Type message.."  id="texto" required></textarea>
+
+   <!-- <input type="submit" name="submit" value="invia" class="btn"> -->
+   <button id="invia" onclick="invia()" class="btn">INVIA</button>
     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-  </form>
+  </div>
 </div>
 
 

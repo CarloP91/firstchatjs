@@ -19,7 +19,7 @@ $result = mysqli_query($conn, $sql);
 
 $string = "[";
 	while ($row = mysqli_fetch_array($result)) {
-		$string = $string . '{"mittente": "'. $row["username"] .'", "testo": "' . $row["texto"] .'", "id": "' . $row["id"] .'"},';
+		$string = $string . '{"data": "'. $row["data"] .'","mittente": "'. $row["username"] .'", "testo": "' . $row["texto"] .'", "id": "' . $row["id"] .'"},';
 	}
 	mysqli_close($conn);
 	$string = rtrim($string, ",");
