@@ -3,7 +3,6 @@
 <head>
 	<title>CHAT JS</title>
 
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -78,26 +77,19 @@
 </div>
 
 <button class="open-button" onclick="openForm()">Chat</button>
-
-<div class="chat-popup" id="myForm">
  <!-- <form action="db/insert_db_chat_mitt.php" method="post" class="form-container">
     <h1>Chat</h1>
-
-
     <label>USERNAME</label><br>
     <input type="text" name="mittente" ><br><br>
-
     <label for="texto"><b>Message</b></label>
    <textarea  placeholder="Type message.." name="texto" required></textarea> -->
-
-
     <!--<button type="button"  class="btn" onclick="getInputValue();">Send</button>-->
-
     <!-- <button type="button" id="send" onclick="manda()" class="btn">Send</button> -->
+<div class="chat-popup" id="myForm">
+
     <div class="form-container">
-
+      
     <h1>Chat</h1>
-
 
     <label>USERNAME</label><br>
 
