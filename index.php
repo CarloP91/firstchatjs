@@ -1,3 +1,7 @@
+<?php session_start(); 
+
+?>
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -20,9 +24,30 @@
 
 <h2 class=" text-center">JS CHAT - POWERED BY "Carlo Pennetta"</h2>
 
-<button onclick="bgd()">SCURO</button>
+<div class="container">
+<div class="row">
+  <div class="col">
+    <button onclick="chiaro()">CHIARO</button>
+    <button onclick="scuro()">SCURO</button>
+    <button onclick="base()">DEFAULT</button>
+  </div>
+  <div class="col"></div>
+  <div class="col"><span> 
+    <?php if(!isset($_SESSION['use'])) {// If session is not set then redirect to Login Page ?>
+           <a href="login/form_login.php">LOGIN</a> <span>(sezione in costruzione)</span>
+                <?php }     elseif (isset($_SESSION['use'])) { ?>
+                <!-- Benvenuto: <?php echo "$user"; ?> --> <a href="login/logout.php"><button type="button" class="btn btn-secondary">Logout</button></a>
+              <?php   } ?></span></div>
+</div>
+</div>
 
-  <div id="divD" class="container" >
+
+
+
+
+
+
+  <div id="divD" class="container" style=>
  
 </div> 
 
@@ -42,9 +67,9 @@
 
     <h5>Chat</h5>
 
-    <label>USERNAME</label><br>
+   <label>USERNAME</label><br>
 
-    <input type="text" id="mittente" class="username_form"><br><br>
+    <input type="text" name="user" id="mittente" class="username_form"><br><br> 
 
     <label for="texto"><b>Message</b></label>
     <textarea  placeholder="Type message.."  id="texto" required></textarea>
@@ -92,34 +117,43 @@ function closeForm() {
         } */
 
 
-const messages = document.getElementById('messages');
-
-function appendMessage() {
-  const message = document.getElementsByClassName('message')[0];
-  const newMessage = message.cloneNode(true);
-  messages.appendChild(newMessage);
-}
-
-function getMessages() {
-  // Prior to getting your messages.
-  shouldScroll = messages.scrollTop + messages.clientHeight === messages.scrollHeight;
-  /*
-   * Get your messages, we'll just simulate it by appending a new one syncronously.
-   */
-  appendMessage();
-  // After getting your messages.
-  if (!shouldScroll) {
-    scrollToBottom();
-  }
-}
-
-function scrollToBottom() {
-  messages.scrollTop = messages.scrollHeight;
-}
-
-scrollToBottom();
-
-setInterval(getMessages, 100);
-
 </script>
+<script type="text/javascript">
+      function chiaro(){
+      var div = document.getElementById('divD');         
+            div.style.backgroundColor='#FFFFFF';
+      document.getElementById("divD").innerHTML = selection; 
+
+    }
+</script>
+<script type="text/javascript">
+      function scuro(){
+      var div = document.getElementById('divD');         
+            div.style.backgroundColor='black';
+      document.getElementById("divD").innerHTML = selection; 
+
+    }
+</script>
+<script type="text/javascript">
+      function base(){
+      var div = document.getElementById('divD');         
+            div.style.backgroundColor='#f1f1f1';
+      document.getElementById("divD").innerHTML = selection; 
+
+    }
+</script>
+<!--<script type="text/javascript">
+  function chiaro() {
+    var div = document.getElementById( 'divD' );
+    div.onmouseover = function() {
+    this.style.backgroundColor = 'green';
+    h2s[0].style.backgroundColor = 'blue';
+        };
+  div.onmouseout = function() {
+  this.style.backgroundColor = 'grey';
+  h2s[0].style.backgroundColor = 'transparent';
+      };
+  } // onmouseover = al passaggio del mouse
+</script> -->
 </html>
+
