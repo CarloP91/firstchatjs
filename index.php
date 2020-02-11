@@ -122,7 +122,6 @@ function closeForm() {
       function chiaro(){
       var div = document.getElementById('divD');         
             div.style.backgroundColor='#FFFFFF';
-      document.getElementById("divD").innerHTML = selection; 
 
     }
 </script>
@@ -130,15 +129,13 @@ function closeForm() {
       function scuro(){
       var div = document.getElementById('divD');         
             div.style.backgroundColor='black';
-      document.getElementById("divD").innerHTML = selection; 
-
+    
     }
 </script>
 <script type="text/javascript">
       function base(){
       var div = document.getElementById('divD');         
             div.style.backgroundColor='#f1f1f1';
-      document.getElementById("divD").innerHTML = selection; 
 
     }
 </script>
