@@ -6,9 +6,9 @@
 
 
 $servername = "fojvtycq53b2f2kx.chr7pe7iynqr.eu-west-1.rds.amazonaws.com";
-$username = "fl8m5ihlkeglej9y";
-$password = "ap14hguk2ew0o7fu";
-$dbname = "dmzuotjpl1kqzm8b";
+$username = "gjmgooezgd0njxfq";
+$password = "mlv0qte7fznldfj8";
+$dbname = "ygg6o94kdgqgy36e";
 
 
 $id = $_POST["id"];
