@@ -1,8 +1,8 @@
 <?php
 $servername = "fojvtycq53b2f2kx.chr7pe7iynqr.eu-west-1.rds.amazonaws.com";
-$username = "ltwgwrna6uukqi5g";
-$password = "wklljo29mau1yzg1";
-$dbname = "wgijrn50b1al9p6v";
+$username = "fl8m5ihlkeglej9y";
+$password = "ap14hguk2ew0o7fu";
+$dbname = "dmzuotjpl1kqzm8b";
 
 $order= "nome"; 
 $visual= "ASC"; 
